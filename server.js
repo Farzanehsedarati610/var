@@ -19,3 +19,10 @@ app.post('/transfer', (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`API running on port ${PORT}`));
 
+const transferRoutes = require('./routes/transfer');
+
+dotenv.config();
+app.use(bodyParser.json());
+
+// Use the new routes
+app.use('/api', transferRoutes);
